@@ -15,3 +15,10 @@ models:
 
     views:
       materialized: view
+
+    tables:
+      materialized: incremental
+      sql_where: 'TRUE' # Advanced incremental model usage https://docs.getdbt.com/docs/configuring-models#section-advanced-incremental-model-usage
+      unique_key: 'query_id'
+      sort: 'started_at'
+      dist: 'query_id'
