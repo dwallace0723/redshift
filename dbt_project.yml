@@ -21,4 +21,4 @@ models:
       sql_where: 'TRUE' # Advanced incremental model usage https://docs.getdbt.com/docs/configuring-models#section-advanced-incremental-model-usage
       sort: 'started_at'
       dist: 'query_id'
-      post-hook: '{{ redshift.unload_table(this.schema, this.table, "s3://mode-rs-spectrum-data-lake/redshift_query_mode_table/", env_var("AWS_S3_IAM_ROLE")), delimiter="|" }}'
+      post-hook: "{{ redshift.unload_table(this.schema, this.table, 's3://mode-rs-spectrum-data-lake/redshift_query_mode_table', env_var('AWS_S3_IAM_ROLE'), delimiter='|') }}"
