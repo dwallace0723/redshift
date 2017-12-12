@@ -50,7 +50,6 @@ where query_header_is_json is true
 )
 
 select
-  md5(q.query_id::varchar + '-' + q.started_at::varchar) as unique_key,
   q.*,
   qhis.mode_report_run_username,
   qhis.mode_report_url,
